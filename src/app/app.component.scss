@@ -1,0 +1,39 @@
+@import '../scss/helpers.scss';
+
+:host {
+  @include flex(column);
+  height: 100%;
+}
+
+header {
+  background-color: color(primary);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 spacing(4x);
+  margin: 0 auto;
+}
+
+.nav {
+  @include flex(row, space-around, center);
+}
+
+.nav__link {
+  @include font(xlarge, $color: white);
+  @include border(3px, solid, transparent, bottom);
+  @include transition(border-bottom);
+  padding: $spacing-4x $spacing-8x;
+  text-decoration: none;
+  text-align: center;
+  flex-grow: 1;
+
+  &.active {
+    border-bottom-color: color(border);
+  }
+}
+
+router-outlet {
+  display: none;
+}
