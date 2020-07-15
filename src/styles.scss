@@ -32,6 +32,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  flex-grow: 1;
+  background-color: color(light);
+}
+
 button {
   position: relative;
   background-color: transparent;
