@@ -1,1 +1,104 @@
 /* You can add global styles to this file, and also import other style files */
+
+// ==========================================================================
+//   NORMALIZE - Normalize.css makes browsers render all elements
+//              more consistently and in line with modern standards.
+//              It precisely targets only the styles that need normalizing.
+// ==========================================================================
+@import '../node_modules/normalize-scss/sass/normalize';
+
+// --------------------------------------------------------
+//   HELPERS - import all variables, functions and mixins
+// --------------------------------------------------------
+@import './scss/helpers.scss';
+
+// -------------------
+//   GLOBAL STYLINGS
+// -------------------
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+body {
+  @include font(medium, medium, font-primary, $family: medium);
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+
+  // for Google Fonts
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &::before {
+    @include pseudo();
+    @include transition(background-color);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:focus::before {
+    background-color: rgba($color-primary, 0.06);
+  }
+}
+
+input,
+textarea {
+  @include border();
+  @include font();
+  @include placeholder {
+    opacity: 0.5;
+  }
+  width: 100%;
+  background-color: color(white);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+span {
+  @include font(medium, medium, inherit);
+}
+
+p {
+  @include font(medium, medium, font-secondary);
+  margin-bottom: spacing(4x);
+}
+
+small {
+  @include font(small, regular, light, $family: regular);
+}
+
+strong,
+b {
+  @include font(medium, semibold, font-primary);
+}
+
+a {
+  @include font(medium, regular, link);
+
+  &:hover {
+    color: darken($color-link, 10%);
+  }
+}
