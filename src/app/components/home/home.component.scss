@@ -21,15 +21,26 @@
   position: relative;
   margin: 0;
   overflow: hidden;
+
+  @include media(lg) {
+    &:hover .card__caption {
+      bottom: 0;
+    }
+  }
 }
 
 .card__caption {
+  @include transition(bottom);
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
   padding: $spacing-1x $spacing-4x;
   background-color: rgba(color(white), 0.4);
+
+  @include media(lg) {
+    bottom: -30px;
+  }
 }
 
 .card__content {
