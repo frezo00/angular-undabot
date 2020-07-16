@@ -38,7 +38,7 @@ $colors: (
   border: $color-border,
   transparent: transparent,
   inherit: inherit,
-  white: white,
+  white: white
 );
 
 $color-base: $color-primary !default;
@@ -64,10 +64,10 @@ $font-family-regular: 'roboto-regular', sans-serif;
 
 $font-families: (
   medium: $font-family-medium,
-  regular: $font-family-regular,
+  regular: $font-family-regular
 );
 
-$font-family-base: $font-family-medium !default;
+$font-family-base: $font-family-regular !default;
 
 // -------------
 //   FONT SIZE
@@ -92,7 +92,7 @@ $font-sizes: (
   small: $font-size-small,
   xsmall: $font-size-xsmall,
   xxsmall: $font-size-xxsmall,
-  inherit: inherit,
+  inherit: inherit
 );
 
 $font-size-base: $font-size-normal !default;
@@ -112,7 +112,7 @@ $font-weights: (
   regular: $font-weight-regular,
   semibold: $font-weight-semibold,
   bold: $font-weight-bold,
-  inherit: inherit,
+  inherit: inherit
 );
 
 $font-weight-base: $font-weight-regular !default;
@@ -147,7 +147,7 @@ $breakpoints: (
   sm: $breakpoint-sm,
   md: $breakpoint-md,
   lg: $breakpoint-lg,
-  xl: $breakpoint-xl,
+  xl: $breakpoint-xl
 );
 
 // =========================================================
@@ -178,7 +178,7 @@ $spacings: (
   9x: $spacing-9x,
   10x: $spacing-10x,
   auto: auto,
-  clear: 0,
+  clear: 0
 );
 
 $positions: (null, top, right, bottom, left);
@@ -187,8 +187,8 @@ $positions: (null, top, right, bottom, left);
 //   BOX SHADOW - Varibales for 'box-shadow' property
 // ====================================================
 $box-shadow-x: 0;
-$box-shadow-y: 4px;
-$box-shadow-blur: 8px;
+$box-shadow-y: 8px;
+$box-shadow-blur: 16px;
 $box-shadow-color: rgba(#000000, 0.06);
 
 $box-shadow-base: $box-shadow-x $box-shadow-y $box-shadow-blur $box-shadow-color !default;

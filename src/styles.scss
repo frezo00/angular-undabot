@@ -22,7 +22,8 @@
 }
 
 body {
-  @include font(medium, medium, font-primary, $family: medium);
+  @include font(medium, medium, font-primary);
+  font-family: $font-family-base;
   height: 100vh;
   margin: 0;
   overflow: hidden;
@@ -92,12 +93,12 @@ p {
 }
 
 small {
-  @include font(small, regular, light, $family: regular);
+  @include font(small, regular, light);
 }
 
 strong,
 b {
-  @include font(medium, semibold, font-primary);
+  @include font(medium, semibold, font-primary, $family: medium);
 }
 
 a {
@@ -106,4 +107,13 @@ a {
   &:hover {
     color: darken($color-link, 10%);
   }
+}
+
+h2 {
+  @include font(xlarge, semibold, font-primary, $family: medium);
+}
+
+img {
+  width: 100%;
+  margin: 0 auto;
 }
