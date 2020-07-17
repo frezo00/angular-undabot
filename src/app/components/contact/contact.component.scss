@@ -1,0 +1,67 @@
+@import '../../../scss/helpers.scss';
+
+.form {
+  @include flex(column);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto $spacing-8x;
+}
+
+.form-group {
+  @include flex(column);
+  margin-bottom: $spacing-2x;
+}
+
+.form-group__control {
+  padding: $spacing-2x $spacing-4x;
+  border-radius: $border-radius-base;
+
+  &:required + .form-group__label::after {
+    @include pseudo('*', relative, inline-block);
+    @include font($color: error);
+    padding-left: $spacing-1x;
+  }
+}
+
+.form-group__control--error {
+  border-color: rgba(color(error), 0.5);
+}
+
+.form-group__label {
+  padding: $spacing-1x;
+  order: -1;
+}
+
+.form-group__error {
+  @include font(small, $color: error);
+  @include transition(visability, opacity);
+  min-height: 22px;
+  padding: $spacing-1x $spacing-1x 0 $spacing-1x;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.form-group__error--active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.form__submit {
+  @include border(2px, $color: primary);
+  @include font(large, $color: white);
+  @include transition(border-color, background-color, opacity);
+  padding: $spacing-2x $spacing-4x;
+  margin: $spacing-4x 0;
+  min-width: 160px;
+  border-radius: $border-radius-base;
+  background-color: color(primary);
+
+  &:not(:disabled):focus {
+    border-color: darken(color(primary), 10%);
+  }
+
+  &:not(:disabled):hover {
+    border-color: darken(color(primary), 5%);
+    background-color: darken(color(primary), 5%);
+  }
+}
