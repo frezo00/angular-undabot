@@ -1,1 +1,10 @@
-<p>home works!</p>
+<article class="card">
+  <figure class="card__figure">
+    <img [src]="image.url" [alt]="image.name" />
+    <figcaption [innerHTML]="image.caption | safe: 'html'" class="card__caption"></figcaption>
+  </figure>
+  <section class="card__content">
+    <h2 class="card__title">{{ title }}</h2>
+    <p class="card__description">{{ description }}</p>
+  </section>
+</article>

@@ -1,0 +1,59 @@
+@import '../../../scss/helpers.scss';
+
+:host {
+  @include flex();
+  flex-wrap: wrap;
+  padding: $spacing-8x 0;
+}
+
+.card {
+  @include flex(column);
+  width: 100%;
+  max-width: 360px;
+  box-shadow: $box-shadow-base;
+  border-radius: $border-radius-base;
+  background-color: color(white);
+  overflow: hidden;
+}
+
+.card__figure {
+  @include flex(column);
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+
+  @include media(lg) {
+    &:hover .card__caption {
+      bottom: 0;
+    }
+  }
+}
+
+.card__caption {
+  @include transition(bottom);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: $spacing-1x $spacing-4x;
+  background-color: rgba(color(white), 0.4);
+
+  @include media(lg) {
+    bottom: -30px;
+  }
+}
+
+.card__content {
+  @include flex(column);
+  padding: 0 $spacing-5x $spacing-2x;
+}
+
+.card__title {
+  @include font(xxlarge);
+  margin: $spacing-4x 0;
+}
+
+.card__description {
+  @include font(normal, $color: font-secondary);
+  margin: 0 0 $spacing-2x;
+}
