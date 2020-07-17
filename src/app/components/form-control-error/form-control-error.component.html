@@ -1,0 +1,11 @@
+<ng-container *ngIf="errors && errors['required']">This field is required</ng-container>
+
+<ng-container *ngIf="errors && errors['email']">Email format is invalid</ng-container>
+
+<ng-container *ngIf="errors && errors['minlength']">
+  This field requires minimum {{ errors['minlength'].requiredLength }} characters
+</ng-container>
+
+<ng-container *ngIf="errors && errors['maxlength']">
+  This field allows maximum {{ errors['maxlength'].requiredLength }} characters
+</ng-container>
