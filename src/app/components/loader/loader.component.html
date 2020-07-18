@@ -1,0 +1,6 @@
+<ng-container *ngIf="isLoading$ | async; else notLoading">
+  <div class="loader"></div>
+</ng-container>
+<ng-template #notLoading>
+  <ng-content></ng-content>
+</ng-template>
