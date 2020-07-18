@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { ApiInterceptor } from './services/api.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,10 +20,17 @@ import { SafePipe } from './pipes/safe.pipe';
     ContactComponent,
     FormControlErrorComponent,
     LoaderComponent,
-    SafePipe,
-    NotificationComponent
+    NotificationComponent,
+    SafePipe
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

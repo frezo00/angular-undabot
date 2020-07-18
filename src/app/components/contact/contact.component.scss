@@ -50,9 +50,10 @@
   @include border(2px, $color: primary);
   @include font(large, $color: white);
   @include transition(border-color, background-color, opacity);
+  min-width: 160px;
+  height: 50px;
   padding: $spacing-2x $spacing-4x;
   margin: $spacing-4x 0;
-  min-width: 160px;
   border-radius: $border-radius-base;
   background-color: color(primary);
 

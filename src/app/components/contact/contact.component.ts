@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { MessageRequest } from '../../models';
+import { ApiService } from '../../services/api.service';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -11,7 +14,7 @@ export class ContactComponent implements OnInit {
   email: FormControl;
   message: FormControl;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private _apiService: ApiService) {}
 
   ngOnInit(): void {
     this.email = new FormControl('', [Validators.required, Validators.email]);
@@ -25,8 +28,8 @@ export class ContactComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      // TODO: Here call API for sending form data
-      console.log(this.form.value);
+      const data: MessageRequest = { ...this.form.value };
+      this._apiService.sendMessage$(data).subscribe(_ => this.form.reset());
     } else {
       this._updateControlsValidity();
     }

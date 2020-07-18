@@ -43,7 +43,8 @@
       "rxjs",
       "@angular/platform-browser",
       "@angular/core/testing",
-      "@angular/router/testing"
+      "@angular/router/testing",
+      "@angular/common/http"
     ],
     "no-switch-case-fall-through": true,
     "no-var-requires": false,

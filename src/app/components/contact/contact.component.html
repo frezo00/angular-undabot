@@ -33,5 +33,9 @@
     </span>
   </div>
 
-  <button type="submit" [disabled]="!form.valid" class="form__submit">Submit</button>
+  <button type="submit" [disabled]="!form.valid" class="form__submit">
+    <app-loader>Send</app-loader>
+  </button>
 </form>
+
+<app-notification></app-notification>
