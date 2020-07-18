@@ -1,0 +1,7 @@
+<div [ngSwitch]="currentType$ | async">
+  <div *ngSwitchCase="type.Success">{{ message$ | async }}</div>
+  <ul *ngSwitchCase="type.Error">
+    <li *ngFor="let error of message$ | async">{{ error }}</li>
+  </ul>
+  <ng-container *ngSwitchDefault></ng-container>
+</div>
