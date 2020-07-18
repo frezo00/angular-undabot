@@ -1,19 +1,21 @@
-<header>
-  <nav class="nav container">
-    <a
-      *ngFor="let link of links"
-      [routerLink]="link.url"
-      [routerLinkActiveOptions]="{ exact: true }"
-      routerLinkActive="active"
-      class="nav__link"
-    >
-      {{ link.title }}
-    </a>
-  </nav>
-</header>
+<div [class.loading]="isLoading$ | async" class="wrapper">
+  <header>
+    <nav class="nav container">
+      <a
+        *ngFor="let link of links"
+        [routerLink]="link.url"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active"
+        class="nav__link"
+      >
+        {{ link.title }}
+      </a>
+    </nav>
+  </header>
 
-<main>
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-</main>
+  <main>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
