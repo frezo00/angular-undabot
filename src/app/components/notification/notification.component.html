@@ -1,7 +1,11 @@
-<div [ngSwitch]="currentType$ | async">
-  <div *ngSwitchCase="type.Success">{{ message$ | async }}</div>
-  <ul *ngSwitchCase="type.Error">
-    <li *ngFor="let error of message$ | async">{{ error }}</li>
+<section *ngIf="message$ | async as message" [ngSwitch]="currentType$ | async">
+  <div *ngSwitchCase="type.Success" class="notification notification--success">
+    <span class="notification__message">{{ message }}</span>
+  </div>
+
+  <ul *ngSwitchCase="type.Error" class="notification notification--error">
+    <li *ngFor="let error of message" class="notification__message">{{ error }}</li>
   </ul>
-  <ng-container *ngSwitchDefault></ng-container>
-</div>
+
+  <i (click)="onClose()" class="notification__close">&times;</i>
+</section>

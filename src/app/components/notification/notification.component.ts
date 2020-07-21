@@ -21,4 +21,8 @@ export class NotificationComponent implements OnInit {
     this.currentType$ = this._notificationService.activeType$;
     this.message$ = this._notificationService.message$;
   }
+
+  onClose(): void {
+    this._notificationService.reset();
+  }
 }
