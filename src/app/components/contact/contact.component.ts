@@ -29,7 +29,10 @@ export class ContactComponent implements OnInit {
   onSubmit(): void {
     if (this.form.valid) {
       const data: MessageRequest = { ...this.form.value };
-      this._apiService.sendMessage$(data).subscribe(_ => this.form.reset());
+      this._apiService.sendMessage$(data).subscribe(
+        _ => this.form.reset(),
+        _ => this._updateControlsValidity()
+      );
     } else {
       this._updateControlsValidity();
     }

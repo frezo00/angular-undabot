@@ -10,8 +10,8 @@ import { FormControlErrorComponent } from './components/form-control-error/form-
 import { HomeComponent } from './components/home/home.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { ApiInterceptor } from './interceptors/api.interceptor';
 import { SafePipe } from './pipes/safe.pipe';
-import { ApiInterceptor } from './services/api.interceptor';
 
 @NgModule({
   declarations: [
