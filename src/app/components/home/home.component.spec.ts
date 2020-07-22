@@ -26,11 +26,11 @@ describe('HomeComponent', () => {
 
   describe('on init', () => {
     it('should define properties', () => {
-      expect(component.title).toBeDefined();
-      expect(component.description).toBeDefined();
-      expect(component.image).toBeDefined();
-      expect(component.author).toBeDefined();
-      expect(component.source).toBeDefined();
+      expect(component.title).toBeDefined('Title');
+      expect(component.description).toBeDefined('Description');
+      expect(component.image).toBeDefined('Image');
+      expect(component.author).toBeDefined('Author');
+      expect(component.source).toBeDefined('Source');
     });
 
     it('should render defined properties', () => {
@@ -38,9 +38,9 @@ describe('HomeComponent', () => {
       const descriptionContent: HTMLParagraphElement = fixture.debugElement.query(By.css('p')).nativeElement;
       const imageContant: HTMLImageElement = fixture.debugElement.query(By.css('img')).nativeElement;
 
-      expect(titleContent.textContent.trim()).toEqual(component.title);
-      expect(descriptionContent.textContent.trim()).toEqual(component.description);
-      expect(imageContant.alt.trim()).toEqual(component.image.name);
+      expect(titleContent.textContent.trim()).toEqual(component.title, 'Title');
+      expect(descriptionContent.textContent.trim()).toEqual(component.description, 'Description');
+      expect(imageContant.alt.trim()).toEqual(component.image.name, 'Image name');
     });
   });
 });
