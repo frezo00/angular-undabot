@@ -1,6 +1,6 @@
 import { Observable, of } from 'rxjs';
 
-import { MessageRequest, MessageResponse } from '../models';
+import { MessageRequest, MessageResponse } from '../../models';
 
 export class ApiServiceMock {
   sendMessage$(_payload: MessageRequest): Observable<MessageResponse> {

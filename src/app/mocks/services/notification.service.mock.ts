@@ -1,10 +1,10 @@
 import { BehaviorSubject } from 'rxjs';
 
-import { NotificationType } from '../models';
+import { NotificationType } from '../../models';
 
 export class NotificationServiceMock {
-  message$: BehaviorSubject<string | string[]>;
-  activeType$: BehaviorSubject<NotificationType>;
+  message$ = new BehaviorSubject<string | string[]>(null);
+  activeType$ = new BehaviorSubject<NotificationType>(null);
   success(_message: string): void {}
   error(_message: string): void {}
   reset(): void {}
