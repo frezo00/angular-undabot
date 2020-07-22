@@ -1,3 +1,4 @@
+export * from './components/contact.component.mock';
 export * from './components/form-error-control.component.mock';
 export * from './components/loader.component.mock';
 export * from './components/notification.component.mock';
