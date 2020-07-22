@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { FormGroup } from '@angular/forms';
 
-import { ContactComponent } from '../components/contact/contact.component';
 import { ContactComponentMock } from '../mocks';
+import { ContactComponent } from '../pages/contact/contact.component';
 import { FormGuard } from './form.guard';
 
 describe('FormGuard', () => {

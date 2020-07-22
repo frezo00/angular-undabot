@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
 
-import { ContactComponent } from '../components/contact/contact.component';
+import { ContactComponent } from '../pages/contact/contact.component';
 
 @Injectable({ providedIn: 'root' })
 export class FormGuard implements CanDeactivate<ContactComponent> {
