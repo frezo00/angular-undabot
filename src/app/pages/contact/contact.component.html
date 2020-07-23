@@ -1,0 +1,41 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+  <div class="form-group">
+    <input
+      [ngClass]="{ 'form-group__control--error': email.invalid && email.touched }"
+      formControlName="email"
+      placeholder="example@mail.com"
+      class="form-group__control"
+      type="email"
+      name="email"
+      id="email"
+      required
+    />
+    <label for="email" class="form-group__label">Email</label>
+    <span [class.form-group__error--active]="email.invalid && email.touched" class="form-group__error">
+      <app-form-control-error [errors]="email.errors"></app-form-control-error>
+    </span>
+  </div>
+
+  <div class="form-group">
+    <textarea
+      [ngClass]="{ 'form-group__control--error': message.invalid && message.touched }"
+      formControlName="message"
+      placeholder="Enter your message..."
+      class="form-group__control"
+      name="message"
+      id="message"
+      rows="8"
+      required
+    ></textarea>
+    <label for="message" class="form-group__label">Message</label>
+    <span [class.form-group__error--active]="message.invalid && message.touched" class="form-group__error">
+      <app-form-control-error [errors]="message.errors"></app-form-control-error>
+    </span>
+  </div>
+
+  <button type="submit" [disabled]="!form.valid" class="form__submit">
+    <app-loader>Send</app-loader>
+  </button>
+</form>
+
+<app-notification></app-notification>

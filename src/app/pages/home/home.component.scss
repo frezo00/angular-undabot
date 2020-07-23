@@ -1,9 +1,8 @@
-@import '../../../scss/helpers.scss';
+@import '../../../scss/helpers';
 
 :host {
-  @include flex();
+  @include flex(row, center);
   flex-wrap: wrap;
-  padding: $spacing-8x 0;
 }
 
 .card {
@@ -30,6 +29,7 @@
 }
 
 .card__caption {
+  @include font(medium);
   @include transition(bottom);
   position: absolute;
   bottom: 0;

@@ -15,7 +15,9 @@ $_mine-shaft: #343434;
 $_boulder: #747474;
 $_polar: #e4f6fa;
 $_mariner: #257ac4;
-$_gallery: #ededed;
+$_alto: #dedede;
+$_guardsman_red: #cc0000;
+$_fun_green: #007e33;
 
 // ----------------
 //   THEME COLORS
@@ -26,7 +28,10 @@ $color-font-primary: $_mine-shaft;
 $color-font-secondary: $_boulder;
 $color-light: $_polar;
 $color-link: $_mariner;
-$color-border: $_gallery;
+$color-faded: rgba($color-primary, 0.5);
+$color-border: $_alto;
+$color-error: $_guardsman_red;
+$color-success: $_fun_green;
 
 $colors: (
   primary: $color-primary,
@@ -35,7 +40,10 @@ $colors: (
   font-secondary: $color-font-secondary,
   light: $color-light,
   link: $color-link,
+  faded: $color-faded,
   border: $color-border,
+  error: $color-error,
+  success: $color-success,
   transparent: transparent,
   inherit: inherit,
   white: white

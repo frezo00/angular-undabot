@@ -10,7 +10,7 @@
 // --------------------------------------------------------
 //   HELPERS - import all variables, functions and mixins
 // --------------------------------------------------------
-@import './scss/helpers.scss';
+@import './scss/helpers';
 
 // -------------------
 //   GLOBAL STYLINGS
@@ -22,7 +22,7 @@
 }
 
 body {
-  @include font(medium, medium, font-primary);
+  @include font(normal, medium, font-primary);
   font-family: $font-family-base;
   height: 100vh;
   margin: 0;
@@ -35,6 +35,7 @@ body {
 
 main {
   flex-grow: 1;
+  padding: $spacing-8x 0;
   background-color: color(light);
   overflow-y: auto;
 }
@@ -43,6 +44,7 @@ button {
   position: relative;
   background-color: transparent;
   overflow: hidden;
+  cursor: pointer;
 
   &:focus {
     outline: none;
@@ -52,27 +54,13 @@ button {
     opacity: 0.5;
     cursor: not-allowed;
   }
-
-  &::before {
-    @include pseudo();
-    @include transition(background-color);
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  &:focus::before {
-    background-color: rgba($color-primary, 0.06);
-  }
 }
 
 input,
 textarea {
   @include border();
-  @include font();
+  @include font($family: regular);
+  @include transition(border-color);
   @include placeholder {
     opacity: 0.5;
   }
@@ -81,7 +69,23 @@ textarea {
 
   &:focus {
     outline: none;
+    border-color: color(faded);
   }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: color(font-primary);
+    -webkit-box-shadow: 0 0 0 30px complement(color(light)) inset;
+    box-shadow: 0 0 0 30px complement(color(light)) inset;
+  }
+}
+
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 120px;
+  max-height: 400px;
 }
 
 span {
