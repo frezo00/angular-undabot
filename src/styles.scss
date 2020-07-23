@@ -1,1 +1,124 @@
 /* You can add global styles to this file, and also import other style files */
+
+// ==========================================================================
+//   NORMALIZE - Normalize.css makes browsers render all elements
+//              more consistently and in line with modern standards.
+//              It precisely targets only the styles that need normalizing.
+// ==========================================================================
+@import '../node_modules/normalize-scss/sass/normalize';
+
+// --------------------------------------------------------
+//   HELPERS - import all variables, functions and mixins
+// --------------------------------------------------------
+@import './scss/helpers';
+
+// -------------------
+//   GLOBAL STYLINGS
+// -------------------
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+body {
+  @include font(normal, medium, font-primary);
+  font-family: $font-family-base;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+
+  // for Google Fonts
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  flex-grow: 1;
+  padding: $spacing-8x 0;
+  background-color: color(light);
+  overflow-y: auto;
+}
+
+button {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+input,
+textarea {
+  @include border();
+  @include font($family: regular);
+  @include transition(border-color);
+  @include placeholder {
+    opacity: 0.5;
+  }
+  width: 100%;
+  background-color: color(white);
+
+  &:focus {
+    outline: none;
+    border-color: color(faded);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: color(font-primary);
+    -webkit-box-shadow: 0 0 0 30px complement(color(light)) inset;
+    box-shadow: 0 0 0 30px complement(color(light)) inset;
+  }
+}
+
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 120px;
+  max-height: 400px;
+}
+
+span {
+  @include font(medium, medium, inherit);
+}
+
+p {
+  @include font(medium, medium, font-secondary);
+  margin-bottom: spacing(4x);
+}
+
+small {
+  @include font(small, regular, light);
+}
+
+strong,
+b {
+  @include font(medium, semibold, font-primary, $family: medium);
+}
+
+a {
+  @include font(medium, regular, link);
+
+  &:hover {
+    color: darken($color-link, 10%);
+  }
+}
+
+h2 {
+  @include font(xlarge, semibold, font-primary, $family: medium);
+}
+
+img {
+  width: 100%;
+  margin: 0 auto;
+}

@@ -1,0 +1,11 @@
+<section *ngIf="message$ | async as message" [ngSwitch]="currentType$ | async">
+  <div *ngSwitchCase="type.Success" class="notification notification--success">
+    <span class="notification__message">{{ message }}</span>
+  </div>
+
+  <ul *ngSwitchCase="type.Error" class="notification notification--error">
+    <li *ngFor="let error of message" class="notification__message">{{ error }}</li>
+  </ul>
+
+  <i (click)="onClose()" class="notification__close">&times;</i>
+</section>

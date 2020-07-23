@@ -1,0 +1,47 @@
+@import '../../../scss/helpers';
+
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto $spacing-8x;
+}
+
+.notification {
+  @include border($color: faded);
+  padding: $spacing-3x $spacing-10x $spacing-3x $spacing-5x;
+  border-radius: $border-radius-base;
+  background-color: color(primary);
+}
+
+.notification--success {
+  background-color: color(success);
+}
+
+.notification--error {
+  padding-left: $spacing-10x;
+  background-color: color(error);
+}
+
+.notification__message {
+  @include font($color: white);
+}
+
+.notification__close {
+  @include pseudo('\00D7');
+  @include font(xxlarge, $color: white);
+  @include transition(opacity);
+  font-style: normal;
+  text-align: center;
+  width: 36px;
+  right: $spacing-2x;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
